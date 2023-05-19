@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test', function () {
+    return view('test');
+});
+
+
+Route::get('/customers', [CustomerController::class, 'CustomersFilter'])->name('customers.CustomersFilter');
+
+Route::get('/customers/{id}', [CustomerController::class, 'CustomerID'])->name('customers.CustomerID');
